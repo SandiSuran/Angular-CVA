@@ -1,27 +1,27 @@
 {
   "version": 1,
   "projects": {
-    "registration-form": {
+    "registration-app": {
       "projectType": "application",
-      "root": "apps/registration-form",
-      "sourceRoot": "apps/registration-form/src",
+      "root": "apps/registration-app",
+      "sourceRoot": "apps/registration-app/src",
       "prefix": "angular-cva",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
-            "outputPath": "dist/apps/registration-form",
-            "index": "apps/registration-form/src/index.html",
-            "main": "apps/registration-form/src/main.ts",
-            "polyfills": "apps/registration-form/src/polyfills.ts",
-            "tsConfig": "apps/registration-form/tsconfig.app.json",
+            "outputPath": "dist/apps/registration-app",
+            "index": "apps/registration-app/src/index.html",
+            "main": "apps/registration-app/src/main.ts",
+            "polyfills": "apps/registration-app/src/polyfills.ts",
+            "tsConfig": "apps/registration-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "apps/registration-form/src/favicon.ico",
-              "apps/registration-form/src/assets"
+              "apps/registration-app/src/favicon.ico",
+              "apps/registration-app/src/assets"
             ],
-            "styles": ["apps/registration-form/src/styles.scss"],
+            "styles": ["apps/registration-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -40,8 +40,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/registration-form/src/environments/environment.ts",
-                  "with": "apps/registration-form/src/environments/environment.prod.ts"
+                  "replace": "apps/registration-app/src/environments/environment.ts",
+                  "with": "apps/registration-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "registration-form:build:production"
+              "browserTarget": "registration-app:build:production"
             },
             "development": {
-              "browserTarget": "registration-form:build:development"
+              "browserTarget": "registration-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,43 +72,43 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "registration-form:build"
+            "browserTarget": "registration-app:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/registration-form/src/**/*.ts",
-              "apps/registration-form/src/**/*.html"
+              "apps/registration-app/src/**/*.ts",
+              "apps/registration-app/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/registration-form"],
+          "outputs": ["coverage/apps/registration-app"],
           "options": {
-            "jestConfig": "apps/registration-form/jest.config.js",
+            "jestConfig": "apps/registration-app/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "registration-form-e2e": {
-      "root": "apps/registration-form-e2e",
-      "sourceRoot": "apps/registration-form-e2e/src",
+    "registration-app-e2e": {
+      "root": "apps/registration-app-e2e",
+      "sourceRoot": "apps/registration-app-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/registration-form-e2e/cypress.json",
-            "devServerTarget": "registration-form:serve:development",
-            "tsConfig": "apps/registration-form-e2e/tsconfig.json"
+            "cypressConfig": "apps/registration-app-e2e/cypress.json",
+            "devServerTarget": "registration-app:serve:development",
+            "tsConfig": "apps/registration-app-e2e/tsconfig.json"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "registration-form:serve:production"
+              "devServerTarget": "registration-app:serve:production"
             }
           }
         },
@@ -116,7 +116,7 @@
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/registration-form-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/registration-app-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -153,5 +153,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "registration-form"
+  "defaultProject": "registration-app"
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'registration-form',
+  displayName: 'registration-app',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/registration-form',
+  coverageDirectory: '../../coverage/apps/registration-app',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

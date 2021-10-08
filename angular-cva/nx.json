@@ -27,12 +27,12 @@
     ]
   },
   "projects": {
-    "registration-form": {
+    "registration-app": {
       "tags": []
     },
-    "registration-form-e2e": {
+    "registration-app-e2e": {
       "tags": [],
-      "implicitDependencies": ["registration-form"]
+      "implicitDependencies": ["registration-app"]
     }
   }
 }
