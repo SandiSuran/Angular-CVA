@@ -1,0 +1,13 @@
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'angular-cva-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class RegistrationComponent implements OnInit {
+  constructor() {}
+
+  ngOnInit(): void {}
+}
