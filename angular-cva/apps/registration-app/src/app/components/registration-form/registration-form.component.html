@@ -1,1 +1,51 @@
-<p>registration-form works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="submitHandler()">
+  <div>
+    <label for="firstName"> First Name</label>
+    <input name="firstName" type="text" formControlName="firstName" />
+  </div>
+  <div>
+    <label for="lastName"> Last Name</label>
+    <input name="lastName" type="text" formControlName="lastName" />
+  </div>
+  <br />
+  <h3>Primary Address</h3>
+  <angular-cva-address formControlName="primaryAddress"></angular-cva-address>
+  <br />
+  <h3>Secondary Address</h3>
+  <angular-cva-address formControlName="secondaryAddress"></angular-cva-address>
+  <br />
+  <!-- <div>
+    <label for="addressLine1"> Address</label>
+    <input name="addressLine1" type="text" formControlName="addressLine1" />
+  </div>
+  <div>
+    <label for="country"> Country</label>
+    <input name="country" type="text" formControlName="country" />
+  </div>
+  <div>
+    <label for="state"> State</label>
+    <input name="state" type="text" formControlName="state" />
+  </div>
+
+  <div>
+    <label for="addressLine2">Secondary Address</label>
+    <input name="addressLine2" type="text" formControlName="addressLine2" />
+  </div>
+  <div>
+    <label for="country2">Secondary Country</label>
+    <input name="country2" type="text" formControlName="country2" />
+  </div>
+  <div>
+    <label for="state2"> Secondary State</label>
+    <input name="state2" type="text" formControlName="state2" />
+  </div> -->
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<br />
+<div>FORM VALUE: {{ formGroup.value | json }}</div>
+<div>FORM STATUS: {{ formGroup.status | json }}</div>
+<div>PRISTINE: {{ formGroup.pristine }}</div>
+<div>DIRTY: {{ formGroup.dirty }}</div>

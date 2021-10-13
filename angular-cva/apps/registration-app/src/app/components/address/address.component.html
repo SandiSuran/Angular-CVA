@@ -1,1 +1,14 @@
-<p>address works!</p>
+<form [formGroup]="form">
+  <div>
+    <label for="addressLine"> Address</label>
+    <input name="addressLine" type="text" formControlName="addressLine" />
+  </div>
+  <div>
+    <label for="country"> Country</label>
+    <input name="country" type="text" formControlName="country" />
+  </div>
+  <div>
+    <label for="state"> State</label>
+    <input name="state" type="text" formControlName="state" />
+  </div>
+</form>
