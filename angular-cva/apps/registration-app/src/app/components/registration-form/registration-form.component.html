@@ -1,5 +1,5 @@
 <form [formGroup]="formGroup" (ngSubmit)="submitHandler()">
-  <div>
+  <!-- <div>
     <label for="firstName"> First Name</label>
     <input
       name="firstName"
@@ -16,7 +16,10 @@
       formControlName="lastName"
       title="Last Name"
     />
-  </div>
+  </div> -->
+  <angular-cva-user-info
+    formControlName="basicUserInfo"
+  ></angular-cva-user-info>
   <br />
   <h3>Primary Address</h3>
   <angular-cva-address formControlName="primaryAddress"></angular-cva-address>
@@ -55,8 +58,21 @@
 </form>
 
 <br />
-<div>REGISTRATION FORM VALUE: {{ formGroup.value | json }}</div>
-<div>REGISTRATION FORM VALIDATION STATUS: {{ formGroup.status | json }}</div>
-<div>REGISTRATION FORM PRISTINE: {{ formGroup.pristine }}</div>
-<div>REGISTRATION FORM DIRTY: {{ formGroup.dirty }}</div>
-<div>REGISTRATION FORM TOUCHED: {{ formGroup.touched }}</div>
+<div class="form-info-container">
+  <p>
+    Master FORM VALUE: <span>{{ formGroup.value | json }}</span>
+  </p>
+  <p>
+    Master FORM VALIDATION STATUS:
+    <span>{{ formGroup.status | json }}</span>
+  </p>
+  <p>
+    Master FORM PRISTINE: <span>{{ formGroup.pristine }}</span>
+  </p>
+  <p>
+    Master FORM DIRTY: <span>{{ formGroup.dirty }}</span>
+  </p>
+  <p>
+    Master FORM TOUCHED: <span>{{ formGroup.touched }}</span>
+  </p>
+</div>

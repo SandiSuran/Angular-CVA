@@ -4,11 +4,23 @@
 <div>USER INFO FORM DIRTY: {{ formGroup.dirty }}</div>
 <div>USER INFO FORM TOUCHED: {{ formGroup.touched }}</div>
 
-<div>
-  <label for="firstName"> First Name</label>
-  <input name="firstName" type="text" />
-</div>
-<div>
-  <label for="lastName"> Last Name</label>
-  <input name="lastName" type="text" />
-</div>
+<form [formGroup]="formGroup">
+  <div>
+    <label for="firstName"> First Name</label>
+    <input
+      name="firstName"
+      type="text"
+      formControlName="firstName"
+      title="First Name"
+    />
+  </div>
+  <div>
+    <label for="lastName"> Last Name</label>
+    <input
+      name="lastName"
+      type="text"
+      formControlName="lastName"
+      title="Last Name"
+    />
+  </div>
+</form>

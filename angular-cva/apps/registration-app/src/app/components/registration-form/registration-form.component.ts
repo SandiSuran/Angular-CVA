@@ -46,10 +46,8 @@ export class RegistrationFormComponent implements OnInit, OnChanges {
     // });
 
     this.formGroup = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      basicUserInfo: [],
       primaryAddress: ['', Validators.required],
-      secondaryAddress: [],
     });
 
     if (this.registrationFormData) {
