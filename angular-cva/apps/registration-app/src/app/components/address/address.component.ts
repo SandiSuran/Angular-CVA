@@ -13,6 +13,7 @@ import {
   NG_VALUE_ACCESSOR,
   ValidationErrors,
   Validator,
+  Validators,
 } from '@angular/forms';
 import { Registration } from '../../models';
 
@@ -40,8 +41,8 @@ export class AddressComponent
   form: FormGroup;
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      addressLine: [''],
-      country: [''],
+      addressLine: ['', Validators.required],
+      country: ['', Validators.required],
       state: [''],
     });
   }
@@ -49,14 +50,29 @@ export class AddressComponent
   validate(control: AbstractControl): ValidationErrors | null {
     return this.form.valid
       ? null
-      : { invalidAddressData: { valid: false, errors: this.form.errors } };
+      : {
+          invalidAddressData: {
+            valid: false,
+            message: 'addressComponent fields are invalid',
+          },
+        };
   }
 
   ngOnInit(): void {
     console.log('init of address component');
   }
-  onChange(newVal: string) {}
-  onTouched(_?: any) {}
+
+  blurHandler() {
+    this.onTouched();
+  }
+
+  private onChange(newVal: string) {
+    /* empty */
+  }
+  private onTouched(_?: any) {
+    /* empty */
+  }
+
   /**
    *
    * @param obj
@@ -69,7 +85,7 @@ export class AddressComponent
    * @param fn
    */
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    console.log('Addres form: on change');
     this.form.valueChanges.subscribe(fn);
   }
   /**
@@ -77,6 +93,12 @@ export class AddressComponent
    * @param fn
    */
   registerOnTouched(fn: any): void {
+    console.log('Addres Form: on blur');
     this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    console.log('Address component disabled status changed');
+    isDisabled ? this.form.disable() : this.form.enable();
   }
 }

@@ -1,14 +1,32 @@
 <form [formGroup]="form">
   <div>
     <label for="addressLine"> Address</label>
-    <input name="addressLine" type="text" formControlName="addressLine" />
+    <input
+      name="addressLine"
+      type="text"
+      formControlName="addressLine"
+      title="Address Line"
+      (blur)="blurHandler()"
+    />
   </div>
   <div>
     <label for="country"> Country</label>
-    <input name="country" type="text" formControlName="country" />
+    <input
+      name="country"
+      type="text"
+      formControlName="country"
+      title="Country"
+      (blur)="blurHandler()"
+    />
   </div>
   <div>
     <label for="state"> State</label>
-    <input name="state" type="text" formControlName="state" />
+    <input
+      name="state"
+      type="text"
+      formControlName="state"
+      title="State"
+      (blur)="blurHandler()"
+    />
   </div>
 </form>
