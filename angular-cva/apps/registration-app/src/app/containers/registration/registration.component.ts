@@ -10,6 +10,8 @@ import { Registration } from '../../models';
 export class RegistrationComponent implements OnInit {
   constructor() {}
 
+  disabled = false;
+
   registrationFormData: Registration = {
     firstName: 'Milivoj',
     lastName: 'Savic',
@@ -26,4 +28,7 @@ export class RegistrationComponent implements OnInit {
   };
 
   ngOnInit(): void {}
+  disableClickHandler() {
+    this.disabled = !this.disabled;
+  }
 }
