@@ -5,6 +5,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Registration } from '../../models';
@@ -16,12 +18,20 @@ import { RegistrationFormData } from '../../types';
   styleUrls: ['./registration-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RegistrationFormComponent implements OnInit {
+export class RegistrationFormComponent implements OnInit, OnChanges {
   @Input() registrationFormData: RegistrationFormData = undefined;
+  @Input() disabled = false;
   @Output() submitted = new EventEmitter<Registration>();
 
   formGroup: FormGroup = this.fb.group({});
   constructor(private fb: FormBuilder) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['disabled']?.firstChange) {
+      const disabled = changes['disabled'].currentValue;
+      disabled ? this.formGroup.disable() : this.formGroup.enable();
+    }
+  }
 
   ngOnInit(): void {
     // this.formGroup = this.fb.group({
@@ -38,7 +48,7 @@ export class RegistrationFormComponent implements OnInit {
     this.formGroup = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      primaryAddress: [null, Validators.required],
+      primaryAddress: ['', Validators.required],
       secondaryAddress: [],
     });
 

@@ -1,19 +1,29 @@
 <form [formGroup]="formGroup" (ngSubmit)="submitHandler()">
   <div>
     <label for="firstName"> First Name</label>
-    <input name="firstName" type="text" formControlName="firstName" />
+    <input
+      name="firstName"
+      type="text"
+      formControlName="firstName"
+      title="First Name"
+    />
   </div>
   <div>
     <label for="lastName"> Last Name</label>
-    <input name="lastName" type="text" formControlName="lastName" />
+    <input
+      name="lastName"
+      type="text"
+      formControlName="lastName"
+      title="Last Name"
+    />
   </div>
   <br />
   <h3>Primary Address</h3>
   <angular-cva-address formControlName="primaryAddress"></angular-cva-address>
-  <br />
+  <!-- <br />
   <h3>Secondary Address</h3>
   <angular-cva-address formControlName="secondaryAddress"></angular-cva-address>
-  <br />
+  <br /> -->
   <!-- <div>
     <label for="addressLine1"> Address</label>
     <input name="addressLine1" type="text" formControlName="addressLine1" />
@@ -45,7 +55,8 @@
 </form>
 
 <br />
-<div>FORM VALUE: {{ formGroup.value | json }}</div>
-<div>FORM STATUS: {{ formGroup.status | json }}</div>
-<div>PRISTINE: {{ formGroup.pristine }}</div>
-<div>DIRTY: {{ formGroup.dirty }}</div>
+<div>REGISTRATION FORM VALUE: {{ formGroup.value | json }}</div>
+<div>REGISTRATION FORM VALIDATION STATUS: {{ formGroup.status | json }}</div>
+<div>REGISTRATION FORM PRISTINE: {{ formGroup.pristine }}</div>
+<div>REGISTRATION FORM DIRTY: {{ formGroup.dirty }}</div>
+<div>REGISTRATION FORM TOUCHED: {{ formGroup.touched }}</div>
