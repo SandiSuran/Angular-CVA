@@ -4,10 +4,20 @@
 
 <angular-cva-registration-form
   [disabled]="disabled"
+  [registrationFormData]="registrationFormDataTest"
 ></angular-cva-registration-form>
 
 <br />
 <p>Actions for testing the form functionality</p>
+
+<button
+  type="button"
+  title="fetch-server-data"
+  (click)="fetchFromServerClickHandler()"
+>
+  Fetch From Server
+</button>
+
 <button type="button" title="disable-button" (click)="disableClickHandler()">
   Disable Form
 </button>

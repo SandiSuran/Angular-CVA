@@ -4,5 +4,10 @@ export interface Registration {
   firstName: string;
   lastName: string;
   primaryAddress: Address;
-  secondaryAddress: Address;
+}
+
+export interface RegistrationWithAddressString {
+  firstName: string;
+  lastName: string;
+  primaryAddress: string;
 }

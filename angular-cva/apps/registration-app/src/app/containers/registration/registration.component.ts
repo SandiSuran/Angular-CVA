@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Registration } from '../../models';
+import { Registration, RegistrationWithAddressString } from '../../models';
 
 @Component({
   selector: 'angular-cva-registration',
@@ -8,6 +8,8 @@ import { Registration } from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationComponent implements OnInit {
+  registrationFormDataTest: RegistrationWithAddressString | undefined =
+    undefined;
   constructor() {}
 
   disabled = false;
@@ -20,15 +22,18 @@ export class RegistrationComponent implements OnInit {
       country: 'Canada',
       state: 'test',
     },
-    secondaryAddress: {
-      addressLine: 'Test 7, Tinjan',
-      country: 'USA',
-      state: 'NY',
-    },
   };
 
   ngOnInit(): void {}
   disableClickHandler() {
     this.disabled = !this.disabled;
+  }
+
+  fetchFromServerClickHandler() {
+    this.registrationFormDataTest = {
+      firstName: 'Milivoj',
+      lastName: 'Savic',
+      primaryAddress: 'Butori 7, Tinjan; Canada; test',
+    };
   }
 }

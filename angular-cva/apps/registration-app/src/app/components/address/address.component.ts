@@ -77,16 +77,44 @@ export class AddressComponent
    *
    * @param obj
    */
-  writeValue(obj: Registration): void {
-    this.form.patchValue(obj);
+  writeValue(obj: string): void {
+    //From the outside world I am receiving a string with comma separated values..
+    //address;cuntry;state
+    if (!obj) return;
+
+    const myFormStateObject = obj
+      .split(';')
+      .reduce((acc, current, currentIndex) => {
+        if (currentIndex == 0) {
+          acc['addressLine'] = current;
+          return acc;
+        } else if (currentIndex == 1) {
+          acc['country'] = current;
+          return acc;
+        } else if (currentIndex == 2) {
+          acc['state'] = current;
+          return acc;
+        } else return acc;
+      }, {} as Record<string, any>);
+    this.form.patchValue(myFormStateObject, {
+      emitEvent: false,
+      onlySelf: true,
+    });
   }
   /**
    *
    * @param fn
    */
   registerOnChange(fn: any): void {
-    console.log('Addres form: on change');
-    this.form.valueChanges.subscribe(fn);
+    console.log('register on change');
+    //Probably should also add a takeWhile operator or directly unsubscribe from this subscription on ngOnDestroy..
+    this.form.valueChanges.subscribe((changes) => {
+      //If I really need to do some manipulation on data changes, then I can do it here
+      //instead of having an object of address properties, I want to have a result of a simple string comma separated values
+      const myDataManipulation = Object.values(this.form.value).join(';');
+      console.log('changes manipulation');
+      fn(myDataManipulation);
+    });
   }
   /**
    *
